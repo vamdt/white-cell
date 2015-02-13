@@ -1,0 +1,16 @@
+{
+  "name": "white-cell",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.16",
+    "zepto": "~1.1.6"
+  }
+}
