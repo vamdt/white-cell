@@ -17,8 +17,13 @@ define(['zepto'], function($) {
         $('table tbody').prepend(el);
     };
     $('table').css('top', -100 * cell_height);
-    setInterval(function(){
+    var cancelInterval = setInterval(function(){
         $('table').css('top', ($('table').offset().top + 5) + 'px');
     }, 80);
+
+
+    $('table').on('click', 'td.target', function() {
+        $(this).removeClass('target').addClass('bingo');
+    });
   });
 });
