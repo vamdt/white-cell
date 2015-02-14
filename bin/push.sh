@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+cd $(dirname $0)
+cd ..
+
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+echo "Current branch is $current_branch"
+
+git checkout master
+git push origin master
+git push upstream master
+
+git checkout gh-pages
+git merge master
+git push origin gh-pages
+
+git checkout gitcafe-pages
+git merge master
+git push upstream gitcafe-pages
+
+git checkout "$current_branch"
+
+git branch -va
