@@ -11,12 +11,14 @@ define(['zepto'], function($) {
         $(this).height(cell_height);
         $(this).children().eq(rand4()).addClass('target');
     });
-    var el;
-    setInterval(function() {
-        el = $('<tr><td></td><td></td><td></td><td></td></tr>');
+    for (var i = 100; i > 0; i--) {
+        var el = $('<tr><td></td><td></td><td></td><td></td></tr>');
         el.height(cell_height).children().eq(rand4()).addClass('target');
         $('table tbody').prepend(el);
-    }, 300);
-
+    };
+    $('table').css('top', -100 * cell_height);
+    setInterval(function(){
+        $('table').css('top', ($('table').offset().top + 5) + 'px');
+    }, 80);
   });
 });
