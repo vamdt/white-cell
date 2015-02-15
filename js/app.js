@@ -21,18 +21,21 @@ define(['zepto'], function($) {
     var initialTop  = (-$('table').height())+(4 * cell_height);
     $('table').css('top', initialTop);
     var counter = 0, cell_counter=0, temp_height, bit, step = 23;
-    var cancelInterval = setInterval(function(){
-        $('table').css('top', ($('table').offset().top + step) + 'px');
-        counter += 1;
-        bit = (counter * step) / cell_height;
-        cell_counter = Math.ceil(bit);
-        temp_height = parseFloat( bit.toString().replace(/^\d+\./, '0.') );
-        if (temp_height > 0.25 &&
-            $('tr').eq(-cell_counter).has('td.target').length) {
-            clearInterval(cancelInterval);
-            alert('You Loose!')
-        };
+    $('tr').eq(-2).on('click', 'td', function() {
+
+        var cancelInterval = setInterval(function(){
+            $('table').css('top', ($('table').offset().top + step) + 'px');
+            counter += 1;
+            bit = (counter * step) / cell_height;
+            cell_counter = Math.ceil(bit);
+            temp_height = parseFloat( bit.toString().replace(/^\d+\./, '0.') );
+            if (temp_height > 0.25 &&
+                $('tr').eq(-cell_counter).has('td.target').length) {
+                clearInterval(cancelInterval);
+                alert('You Loose!')
+            };
     }, 80);
+    });
 
 
     $('table').on('click', 'td.target', function() {
