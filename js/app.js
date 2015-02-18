@@ -1,4 +1,4 @@
-define(['zepto'], function($) {
+define(['zepto', 'zepto.event'], function($) {
 
   function rand4() {
     return Math.floor(Math.random() * 4 );
