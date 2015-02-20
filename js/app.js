@@ -21,7 +21,7 @@ define(['zepto', 'zepto.event'], function($) {
     var initialTop  = (-$('table').height())+(4 * cell_height);
     $('table').css('top', initialTop);
     var counter = 0, cell_counter=0, temp_height, bit, step = 23;
-    $('tr').eq(-2).on('click', 'td', function() {
+    $('tr').eq(-2).on('tap', 'td', function() {
 
         var cancelInterval = setInterval(function(){
             $('table').css('top', ($('table').offset().top + step) + 'px');
@@ -38,7 +38,7 @@ define(['zepto', 'zepto.event'], function($) {
     });
 
 
-    $('table').on('click', 'td.target', function() {
+    $('table').on('tap', 'td.target', function() {
         $(this).removeClass('target').addClass('bingo');
     });
   });
