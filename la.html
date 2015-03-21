@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LA</title>
+  <style>
+    canvas {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="600" height="600" id="canvas"></canvas> 
+  <button id="toImg">hello</button>
+  <script type="text/javascript">
+    var canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext('2d');
+    ctx.fillStyle = "#f0f0f0";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = 'green';
+    ctx.fillRect(50, 50, 200, 500);
+
+    ctx.fillStyle = 'red';
+    ctx.fillRect(250, 50, 300, 500);
+
+    ctx.fillStyle = '#808000';
+    ctx.fillRect(250, 450, 100, 100);
+
+    ctx.fillStyle = "#f0f0f0";
+    ctx.fillRect(150, 50, 100, 400);
+    ctx.fillRect(350, 150, 100, 100);
+    ctx.fillRect(350, 350, 100, 200);
+    var imgStr = canvas.toDataURL();
+    document.getElementById('toImg').onclick = function() {
+      document.body.innerHTML ='<img src="' + imgStr  + '" />'
+    }
+  </script>
+</body>
+</html>
